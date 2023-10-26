@@ -90,6 +90,7 @@ public class AddPassengerDetails extends JFrame implements ActionListener
 		l1.add(l8);
 		
 		tf6 = new JTextField();
+		tf6.setToolTipText("기호(-,.)를 빼고 입력해주세요.");
 		tf6.setBounds(600, 250, 150, 30);
 		l1.add(tf6);
 		
