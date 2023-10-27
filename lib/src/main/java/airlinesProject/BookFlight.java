@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class BookFlight extends JFrame implements ActionListener
 {
-	JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12;
+	JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13;
 	JButton bt1, bt2;
 	JPanel p1, p2, p3;
 	JTextField tf1, tf2, tf3, tf4, tf5;
@@ -17,7 +17,7 @@ public class BookFlight extends JFrame implements ActionListener
 	
 	BookFlight()
 	{
-		super("한국 항공의 항공권 예메");
+		super("한국 항공의 항공권 예매");
 		setLocation(50, 20);
 		setSize(1100, 650);
 		
@@ -50,7 +50,7 @@ public class BookFlight extends JFrame implements ActionListener
 		try 
 		{
 			ConnectionClass obj = new ConnectionClass();
-			String q = "Select username from flight";
+			String q = "Select username from passenger";
 			ResultSet rest = obj.stm.executeQuery(q);
 			while(rest.next())
 			{
@@ -63,7 +63,7 @@ public class BookFlight extends JFrame implements ActionListener
 			System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
 		}
 		
-		l1 = new JLabel("한국 항공의 항공권 예매");
+		l1 = new JLabel("항공권 예매");
 		l2 = new JLabel("티켓 번호");
 		l3 = new JLabel("출발지");
 		l4 = new JLabel("목적지");
@@ -90,14 +90,14 @@ public class BookFlight extends JFrame implements ActionListener
 		tf1.setText("" + Math.abs(r.nextInt() % 100000));
 		tf1.setForeground(Color.red);
 		
-		bt1 = new JButton("항공권 예매");
+		bt1 = new JButton("예매하기");
 		bt2 = new JButton("돌아가기");
 		
 		bt1.addActionListener(this);
 		bt2.addActionListener(this);
 		
 		l1.setHorizontalAlignment(JLabel.CENTER);
-		l1.setForeground(new java.awt.Color(232, 2, 125));
+		l1.setForeground(new java.awt.Color(0, 128, 255));
 		
 		l1.setFont(f);
 		l2.setFont(f1);
@@ -127,6 +127,202 @@ public class BookFlight extends JFrame implements ActionListener
 		
 		bt1.setFont(f1);
 		bt2.setFont(f1);
+		
+		l2.setForeground(new java.awt.Color(20, 102, 184));
+		l3.setForeground(new java.awt.Color(20, 102, 184));
+		l4.setForeground(new java.awt.Color(20, 102, 184));
+		l5.setForeground(new java.awt.Color(20, 102, 184));
+		l6.setForeground(new java.awt.Color(20, 102, 184));
+		l7.setForeground(new java.awt.Color(20, 102, 184));
+		l8.setForeground(new java.awt.Color(20, 102, 184));
+		l9.setForeground(new java.awt.Color(20, 102, 184));
+		l10.setForeground(new java.awt.Color(20, 102, 184));
+		l11.setForeground(new java.awt.Color(20, 102, 184));
+		l12.setForeground(new java.awt.Color(20, 102, 184));
+		
+		bt1.setBackground(new java.awt.Color(0, 128, 255));
+		bt2.setBackground(Color.black);
+		
+		bt1.setForeground(Color.WHITE);
+		bt2.setForeground(new java.awt.Color(0, 128, 255));
+		
+		p1 = new JPanel();
+		p1.setLayout(new GridLayout(1, 1, 10, 10));
+		p1.add(l1);
+		
+		p2 = new JPanel();
+		p2.setLayout(new GridLayout(12, 2, 10, 10));
+		
+		p2.add(l2);
+		p2.add(tf1);
+		p2.add(l3);
+		p2.add(ch1);
+		p2.add(l4);
+		p2.add(ch6);
+		p2.add(l5);
+		p2.add(ch3);
+		p2.add(l6);
+		p2.add(ch4);
+		p2.add(l7);
+		p2.add(ch5);
+		p2.add(l8);
+		p2.add(tf2);
+		p2.add(l9);
+		p2.add(tf3);
+		p2.add(l10);
+		p2.add(tf4);
+		p2.add(l11);
+		p2.add(ch2);
+		p2.add(l12);
+		p2.add(tf5);
+		p2.add(bt1);
+		p2.add(bt2);
+		
+		p3 = new JPanel();
+		p3.setLayout(new GridLayout(1, 1, 10, 10));
+		
+		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("airlinesProject/icons/f1.png"));
+		Image img1 = img.getImage().getScaledInstance(620, 470, Image.SCALE_SMOOTH);
+		ImageIcon ic1 = new ImageIcon(img1);
+		l13 = new JLabel(ic1);
+		p3.add(l13);
+		
+		setLayout(new BorderLayout(10, 10));
+		add(p1, "North");
+		add(p2, "Center");
+		add(p3, "West");
+		
+		ch2.addMouseListener(new MouseAdapter()
+				{
+					@Override
+					public void mouseClicked(MouseEvent arg0) 
+					{
+						try 
+						{
+							ConnectionClass obj = new ConnectionClass();
+							String username = ch6.getSelectedItem();
+							String ql = "Select name from passenger where username = '"+username+"'";
+							ResultSet rest1 = obj.stm.executeQuery(ql);
+							while(rest1.next())
+							{
+								tf5.setText(rest1.getString("name"));
+							}
+							rest1.close();
+						} 
+						catch (Exception ex) 
+						{
+							System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+						}
+					}
+				});
+		
+		ch1.addMouseListener(new MouseAdapter()
+				{
+					@Override
+					public void mouseClicked(MouseEvent arg0) 
+					{
+						ch6.removeAll();
+						
+						try 
+						{
+							ConnectionClass obj = new ConnectionClass();
+							String source = ch1.getSelectedItem();
+							String q1 = "Select distinct destination from flight where source='"+source+"'";
+							ResultSet rest1 = obj.stm.executeQuery(q1);
+							while(rest1.next())
+							{
+								ch6.add(rest1.getString("destination"));
+							}
+						} 
+						catch (Exception ex) 
+						{
+							System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+						}
+					}
+				});
+		
+		ch6.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent arg0) 
+			{
+				ch3.removeAll();
+				
+				try 
+				{
+					ConnectionClass obj = new ConnectionClass();
+					String source = ch1.getSelectedItem();
+					String destination = ch6.getSelectedItem();
+					String q1 = "Select distinct class_name from flight where source='"+source+"' and destination='"+destination+"'";
+					ResultSet rest1 = obj.stm.executeQuery(q1);
+					while(rest1.next())
+					{
+						ch3.add(rest1.getString("class_name"));
+					}
+				} 
+				catch (Exception ex) 
+				{
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+				}
+			}
+		});
+		
+		ch3.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent arg0) 
+			{
+				ch4.removeAll();
+				
+				try 
+				{
+					ConnectionClass obj = new ConnectionClass();
+					String source = ch1.getSelectedItem();
+					String destination = ch6.getSelectedItem();
+					String class_name = ch3.getSelectedItem();
+					String q1 = "Select distinct price from flight where source='"+source+"' and destination='"
+							+destination+"' and class_name='"+class_name+"'";
+					ResultSet rest1 = obj.stm.executeQuery(q1);
+					while(rest1.next())
+					{
+						ch4.add(rest1.getString("price"));
+					}
+				} 
+				catch (Exception ex) 
+				{
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+				}
+			}
+		});
+		
+		ch4.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent arg0) 
+			{
+				ch5.removeAll();
+				
+				try 
+				{
+					ConnectionClass obj = new ConnectionClass();
+					String source = ch1.getSelectedItem();
+					String destination = ch6.getSelectedItem();
+					String class_name = ch3.getSelectedItem();
+					String price = ch4.getSelectedItem();
+					String q1 = "Select distinct f_code from flight where source='"+source+"' and destination='"
+							+destination+"' and class_name='"+class_name+"' and price='"+price+"'";
+					ResultSet rest1 = obj.stm.executeQuery(q1);
+					while(rest1.next())
+					{
+						ch5.add(rest1.getString("f_code"));
+					}
+				} 
+				catch (Exception ex) 
+				{
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+				}
+			}
+		});
 	}
 	
 	@Override
