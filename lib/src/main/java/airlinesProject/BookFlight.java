@@ -200,7 +200,7 @@ public class BookFlight extends JFrame implements ActionListener
 						try 
 						{
 							ConnectionClass obj = new ConnectionClass();
-							String username = ch6.getSelectedItem();
+							String username = ch2.getSelectedItem();
 							String ql = "Select name from passenger where username = '"+username+"'";
 							ResultSet rest1 = obj.stm.executeQuery(ql);
 							while(rest1.next())
@@ -233,6 +233,7 @@ public class BookFlight extends JFrame implements ActionListener
 							{
 								ch6.add(rest1.getString("destination"));
 							}
+							rest1.close();
 						} 
 						catch (Exception ex) 
 						{
@@ -259,6 +260,7 @@ public class BookFlight extends JFrame implements ActionListener
 					{
 						ch3.add(rest1.getString("class_name"));
 					}
+					rest1.close();
 				} 
 				catch (Exception ex) 
 				{
@@ -287,6 +289,7 @@ public class BookFlight extends JFrame implements ActionListener
 					{
 						ch4.add(rest1.getString("price"));
 					}
+					rest1.close();
 				} 
 				catch (Exception ex) 
 				{
@@ -316,6 +319,37 @@ public class BookFlight extends JFrame implements ActionListener
 					{
 						ch5.add(rest1.getString("f_code"));
 					}
+					rest1.close();
+				} 
+				catch (Exception ex) 
+				{
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+				}
+			}
+		});
+		
+		ch5.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent arg0) 
+			{
+				
+				try 
+				{
+					ConnectionClass obj = new ConnectionClass();
+					String source = ch1.getSelectedItem();
+					String destination = ch6.getSelectedItem();
+					String class_name = ch3.getSelectedItem();
+					String price = ch4.getSelectedItem();
+					String f_code = ch5.getSelectedItem();
+					String q1 = "Select distinct f_name from flight where source='"+source+"' and destination='"
+							+destination+"' and class_name='"+class_name+"' and price='"+price+"' and f_code='"+f_code+"'";
+					ResultSet rest1 = obj.stm.executeQuery(q1);
+					while(rest1.next())
+					{
+						tf2.setText(rest1.getString("f_name"));
+					}
+					rest1.close();
 				} 
 				catch (Exception ex) 
 				{
@@ -328,7 +362,47 @@ public class BookFlight extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		
+		if(e.getSource() == bt1)
+		{
+			String tid = tf1.getText();
+			String source = ch1.getSelectedItem();
+			String destination = ch6.getSelectedItem();
+			String classname = ch3.getSelectedItem();
+			String price = ch4.getSelectedItem();
+			String fcode = ch5.getSelectedItem();
+			String fname = tf2.getText();
+			String jdate = tf3.getText();
+			String jtime = tf4.getText();
+			String username = ch2.getSelectedItem();
+			String name = tf5.getText();
+			String status = "Success";
+			
+			try 
+			{
+				ConnectionClass obj = new ConnectionClass();
+				String q1 = "insert into bookedFlight values('"+tid+"','"+source+"','"+destination+"','"+classname+"','"
+						+price+"','"+fcode+"','"+fname+"','"+jdate+"','"+jtime+"','"+username+"','"+name+"','"+status+"')";
+				int aa = obj.stm.executeUpdate(q1);
+				if (aa == 1)
+				{
+					JOptionPane.showMessageDialog(null, "당신의 항공기는 성공적으로 예매되었습니다.");
+					this.setVisible(false);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "모든 칸을 채워주세요.");
+				}
+			} 
+			catch (Exception ex) 
+			{
+				System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+			}
+		}
+		if (e.getSource() == bt2) 
+		{
+			JOptionPane.showMessageDialog(null, "돌아가시겠습니까?");
+			this.setVisible(false);
+		}
 	}
 	
 	public static void main(String[] args) 
