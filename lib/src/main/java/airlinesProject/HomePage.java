@@ -20,7 +20,7 @@ public class HomePage extends JFrame implements ActionListener
 		f1 = new Font("Serif", Font.BOLD, 18);
 		f2 = new Font("SanSerif", Font.BOLD, 35);
 		
-		ImageIcon ic = new ImageIcon(ClassLoader.getSystemResource("airlinesProject/icons/Home1.jpg"));
+		ImageIcon ic = new ImageIcon(ClassLoader.getSystemResource("airlinesProject/icons/Home1.png"));
 		Image img = ic.getImage().getScaledInstance(1550, 800, Image.SCALE_SMOOTH);
 		ImageIcon ic1 = new ImageIcon(img);
 		l1 = new JLabel(ic1);
@@ -68,6 +68,9 @@ public class HomePage extends JFrame implements ActionListener
 		JMenuItem ment11 = new JMenuItem("나가기");
 		men7.add(ment11);
 		m1.add(men7);
+		
+		setJMenuBar(m1);
+		add(l1);
 	}
 	
 	@Override
