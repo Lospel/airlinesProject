@@ -83,7 +83,7 @@ public class AddPassengerDetails extends JFrame implements ActionListener
 		tf5.setBounds(200, 250, 150, 30);
 		l1.add(tf5);
 		
-		l8 = new JLabel("전화번호");
+		l8 = new JLabel("연락처");
 		l8.setBounds(450, 250, 100, 30);
 		l8.setFont(new Font("궁서체", Font.BOLD, 20));
 		l8.setForeground(Color.black);
@@ -124,7 +124,7 @@ public class AddPassengerDetails extends JFrame implements ActionListener
 		tf9.setBounds(200, 350, 150, 30);
 		l1.add(tf9);
 		
-		l12 = new JLabel("항공권 번호");
+		l12 = new JLabel("여권");
 		l12.setBounds(450, 350, 120, 30);
 		l12.setFont(new Font("궁서체", Font.BOLD, 20));
 		l12.setForeground(Color.black);

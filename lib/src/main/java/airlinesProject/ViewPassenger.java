@@ -8,7 +8,7 @@ import java.sql.*;
 public class ViewPassenger extends JFrame 
 {
 	JTable t;
-	String x[] = {"아이디", "이름", "나이", "생년월일", "주소", "전화번호", "이메일", "국적", "성별", "항공권 번호"};
+	String x[] = {"아이디", "이름", "나이", "생년월일", "주소", "연락처", "이메일", "국적", "성별", "여권"};
 	String y[][] = new String[20][10];
 	int i = 0, j = 0;
 	Font f;
