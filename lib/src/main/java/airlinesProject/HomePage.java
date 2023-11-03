@@ -151,10 +151,10 @@ public class HomePage extends JFrame implements ActionListener
 		{
 			new ViewPassenger().setVisible(true);
 		}
-//		else if(cmd.equals("승객 정보 수정하기")) 
-//		{
-//			new UpdatePassenger().setVisible(true);
-//		}
+		else if(cmd.equals("승객 정보 수정하기")) 
+		{
+			new UpdatePassenger().setVisible(true);
+		}
 //		else if(cmd.equals("항공 예약하기")) 
 //		{
 //			new BookFlight().setVisible(true);

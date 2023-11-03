@@ -155,10 +155,24 @@ public class UpdatePassenger extends JFrame implements ActionListener
 				{
 					ConnectionClass obj2 = new ConnectionClass();
 					String username = ch.getSelectedItem();
+					String q1 = "select * from passenger where username='"+username+"'";
+					ResultSet rest1 = obj2.stm.executeQuery(q1);
+					while(rest1.next())
+					{
+						tf1.setText(rest1.getString("name"));
+						tf2.setText(rest1.getString("age"));
+						tf3.setText(rest1.getString("dob"));
+						tf4.setText(rest1.getString("address"));
+						tf5.setText(rest1.getString("phone"));
+						tf6.setText(rest1.getString("email"));
+						tf7.setText(rest1.getString("nationality"));
+						tf8.setText(rest1.getString("gender"));
+						tf9.setText(rest1.getString("passport"));
+					}
 				} 
-				catch (Exception e) 
+				catch (Exception ex) 
 				{
-					// TODO: handle exception
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
 				}
 			}
 		});
@@ -167,7 +181,43 @@ public class UpdatePassenger extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		
+		if(e.getSource() == bt1)
+		{
+			String username = ch.getSelectedItem();
+			String name = tf1.getText();
+			String age = tf2.getText();
+			String dob = tf3.getText();
+			String address = tf4.getText();
+			String phone = tf5.getText();
+			String email = tf6.getText();
+			String nationality = tf7.getText();
+			String gender = tf8.getText();
+			String passport = tf9.getText();
+			try 
+			{
+				ConnectionClass obj3 = new ConnectionClass();
+				String q2 = "update passenger set name='"+name+"',age='"+age+"',dob='"+dob+"',address='"+address+"',phone='"+phone+"',email='"
+						+email+"',nationality='"+nationality+"',gender='"+gender+"',passport='"+passport+"' where username='"+username+"'";
+				int aa = obj3.stm.executeUpdate(q2);
+				if(aa == 1)
+				{
+					JOptionPane.showMessageDialog(null, "성공적으로 수정되었습니다.");
+					this.setVisible(false);
+					new ViewPassenger().setVisible(true);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "모든 칸을 적어주세요.");
+				}
+			} 
+			catch (Exception ex) {
+				System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+			}
+		}
+		else if(e.getSource() == bt2)
+		{
+			this.setVisible(false);
+		}
 	}
 	
 	public static void main(String[] args) 
