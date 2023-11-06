@@ -155,14 +155,14 @@ public class HomePage extends JFrame implements ActionListener
 		{
 			new UpdatePassenger().setVisible(true);
 		}
-//		else if(cmd.equals("항공 예약하기")) 
-//		{
-//			new BookFlight().setVisible(true);
-//		}
-//		else if(cmd.equals("예약된 항공 확인하기")) 
-//		{
-//			new ViewBookedFlight().setVisible(true);
-//		}
+		else if(cmd.equals("항공 예약하기")) 
+		{
+			new BookFlight().setVisible(true);
+		}
+		else if(cmd.equals("예약된 항공 확인하기")) 
+		{
+			new ViewBookedFlight().setVisible(true);
+		}
 //		else if(cmd.equals("여행일정")) 
 //		{
 //			new FlightJourney();
