@@ -54,7 +54,7 @@ public class FlightJourney extends JFrame implements ActionListener
 			{
 				ch1.add(rest.getString("source"));
 			}
-			rest.close();
+
 		} 
 		catch (Exception ex) 
 		{
@@ -67,14 +67,14 @@ public class FlightJourney extends JFrame implements ActionListener
 		
 		try 
 		{
-			ConnectionClass obj2 = new ConnectionClass();
-			String q2 = "Select distinct destination from bookedflight";
-			ResultSet rest2 = obj2.stm.executeQuery(q2);
-			while(rest2.next())
+			ConnectionClass obj = new ConnectionClass();
+			String q = "Select distinct destination from bookedflight";
+			ResultSet rest = obj.stm.executeQuery(q);
+			while(rest.next())
 			{
-				ch2.add(rest2.getString("destination"));
+				ch2.add(rest.getString("destination"));
 			}
-			rest2.close();
+			rest.close();
 		} 
 		catch (Exception ex) 
 		{
