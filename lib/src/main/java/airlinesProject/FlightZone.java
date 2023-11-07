@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.sql.*;
-//import net.proteanit.sql.DbUtils;
+import net.proteanit.sql.DbUtils;
 
 public class FlightZone extends JFrame
 {
@@ -48,7 +48,7 @@ public class FlightZone extends JFrame
 					ConnectionClass obj1 = new ConnectionClass();
 					String q1 = "Select * from flight where f_code='"+code+"'";
 					ResultSet rest1 = obj1.stm.executeQuery(q1);
-//					table.setModel(DbUtils.resultSetToTableModel(rest1));
+					table.setModel(DbUtils.resultSetToTableModel(rest1));
 				} 
 				catch (Exception ex) 
 				{
