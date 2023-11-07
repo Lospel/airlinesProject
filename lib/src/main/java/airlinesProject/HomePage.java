@@ -167,10 +167,10 @@ public class HomePage extends JFrame implements ActionListener
 		{
 			new FlightJourney();
 		}
-//		else if(cmd.equals("탑승번호")) 
-//		{
-//			new FlightZone().setVisible(true);
-//		}
+		else if(cmd.equals("탑승번호")) 
+		{
+			new FlightZone().setVisible(true);
+		}
 //		else if(cmd.equals("티켓 취소하기")) 
 //		{
 //			new CancelFlight().setVisible(true);
