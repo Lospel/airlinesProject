@@ -79,8 +79,49 @@ public class FlightZone extends JFrame
 		{
 			System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
 		}
-		
 		add(ch1);
+		
+		JLabel flightC = new JLabel("항공기 번호");
+		flightC.setFont(new Font("궁서체",Font.BOLD,14));
+		flightC.setBounds(33,220,126,16);
+		flightC.setForeground(new Color(15,11,1));
+		add(flightC);
+		
+		JLabel flightName = new JLabel("항공기명");
+		flightName.setFont(new Font("궁서체",Font.BOLD,14));
+		flightName.setBounds(155,220,120,16);
+		flightName.setForeground(new Color(15,11,1));
+		add(flightName);
+		
+		JLabel source = new JLabel("출발지");
+		source.setFont(new Font("궁서체",Font.BOLD,14));
+		source.setBounds(275,220,104,16);
+		source.setForeground(new Color(15,11,1));
+		add(source);
+		
+		JLabel destination = new JLabel("도착지");
+		destination.setFont(new Font("궁서체",Font.BOLD,14));
+		destination.setBounds(380,220,120,16);
+		destination.setForeground(new Color(15,11,1));
+		add(destination);
+		
+		JLabel capacity = new JLabel("정원");
+		capacity.setFont(new Font("궁서체",Font.BOLD,14));
+		capacity.setBounds(497,220,111,16);
+		capacity.setForeground(new Color(15,11,1));
+		add(capacity);
+		
+		JLabel className = new JLabel("등급");
+		className.setFont(new Font("궁서체",Font.BOLD,14));
+		className.setBounds(610,220,120,16);
+		className.setForeground(new Color(15,11,1));
+		add(className);
+		
+		JLabel price = new JLabel("가격");
+		price.setFont(new Font("궁서체",Font.BOLD,14));
+		price.setBounds(740,220,111,16);
+		price.setForeground(new Color(15,11,1));
+		add(price);
 	}
 	public static void main(String[] args) 
 	{
