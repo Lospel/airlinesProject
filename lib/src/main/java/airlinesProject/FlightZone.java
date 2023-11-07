@@ -122,6 +122,12 @@ public class FlightZone extends JFrame
 		price.setBounds(740,220,111,16);
 		price.setForeground(new Color(15,11,1));
 		add(price);
+		
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setSize(900,650);
+		setVisible(true);
+		setLocation(100,50);
+		
 	}
 	public static void main(String[] args) 
 	{
