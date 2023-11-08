@@ -175,10 +175,10 @@ public class HomePage extends JFrame implements ActionListener
 		{
 			new CancelFlight().setVisible(true);
 		}
-//		else if(cmd.equals("취소된 티켓 확인하기")) 
-//		{
-//			new ViewCanceledTicket().setVisible(true);
-//		}
+		else if(cmd.equals("취소된 티켓 확인하기")) 
+		{
+			new ViewCanceledTicket().setVisible(true);
+		}
 //		else if(cmd.equals("금액 확인하기")) 
 //		{
 //			new CheckPaymentDetails().setVisible(true);
