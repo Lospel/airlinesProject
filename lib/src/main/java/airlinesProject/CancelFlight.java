@@ -135,12 +135,135 @@ public class CancelFlight extends JFrame implements ActionListener
 		
 		bt1.setForeground(Color.WHITE);
 		bt2.setForeground(new java.awt.Color(230,225,225));
+		
+		p1 = new JPanel();
+		p1.setLayout(new GridLayout(1, 1, 10, 10));
+		p1.add(l1);
+		
+		p2 = new JPanel();
+		p2.setLayout(new GridLayout(13, 2, 10, 10));
+		
+		p2.add(l2);
+		p2.add(ch1);
+		p2.add(l3);
+		p2.add(tf1);
+		p2.add(l4);
+		p2.add(tf2);
+		p2.add(l5);
+		p2.add(tf3);
+		p2.add(l6);
+		p2.add(tf4);
+		p2.add(l7);
+		p2.add(tf5);
+		p2.add(l8);
+		p2.add(tf6);
+		p2.add(l9);
+		p2.add(tf7);
+		p2.add(l10);
+		p2.add(tf8);
+		p2.add(l11);
+		p2.add(tf9);
+		p2.add(l12);
+		p2.add(tf10);
+		p2.add(l13);
+		p2.add(tf11);
+		p2.add(bt1);
+		p2.add(bt2);
+		
+		p3 = new JPanel();
+		p3.setLayout(new GridLayout(1, 1, 10, 10));
+		
+		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("airlinesProject/icons/f2.png"));
+		Image img1 = img.getImage().getScaledInstance(600, 350, Image.SCALE_SMOOTH);
+		ImageIcon ic1 = new ImageIcon(img1);
+		l12 = new JLabel(ic1);
+		p3.add(l12);
+		
+		setLayout(new BorderLayout(10, 10));
+		add(p1, "North");
+		add(p2, "Center");
+		add(p3, "West");
+		
+		ch1.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent arg0) 
+			{
+				try 
+				{
+					ConnectionClass obj2 = new ConnectionClass();
+					String tid = ch1.getSelectedItem();
+					String q1 = "Select * From bookedflight where tid='"+tid+"'";
+					ResultSet rest1 = obj2.stm.executeQuery(q1);
+					while(rest1.next())
+					{
+						tf1.setText(rest1.getString("source"));
+						tf2.setText(rest1.getString("destination"));
+						tf3.setText(rest1.getString("class_name"));
+						tf4.setText(rest1.getString("price"));
+						tf5.setText(rest1.getString("fcode"));
+						tf6.setText(rest1.getString("fname"));
+						tf7.setText(rest1.getString("journey_date"));
+						tf8.setText(rest1.getString("journey_time"));
+						tf9.setText(rest1.getString("username"));
+						tf10.setText(rest1.getString("name"));
+					}
+//					rest1.close();
+				} 
+				catch (Exception ex) 
+				{
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+				}
+			}
+		});
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		
+		if(e.getSource() == bt1)
+		{
+			String tid = ch1.getSelectedItem();
+			String source = tf1.getText();
+			String destination = tf2.getText();
+			String classname = tf3.getText();
+			String price = tf4.getText();
+			String fcode = tf5.getText();
+			String fname = tf6.getText();
+			String jdate = tf7.getText();
+			String jtime = tf8.getText();
+			String username = tf9.getText();
+			String name = tf10.getText();
+			String reason = tf11.getText();
+			String status = "Cancel";
+			
+			try 
+			{
+				ConnectionClass obj3 = new ConnectionClass();
+				String q2 = "insert into cancelFlight values('"+tid+"','"+source+"','"+destination+"','"+classname+"','"
+						+price+"','"+fcode+"','"+fname+"','"+jdate+"','"+jtime+"','"+username+"','"+name+"','"+reason+"')";
+				String q3 = "Update bookedflight set status='"+status+"' where tid='"+tid+"'";
+				int aa = obj3.stm.executeUpdate(q2);
+				if (aa == 1)
+				{
+					JOptionPane.showMessageDialog(null, "당신의 항공기는 취소되었습니다.");
+					obj3.stm.executeUpdate(q3);
+					this.setVisible(false);
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "모든 칸을 채워주세요.");
+				}
+			} 
+			catch (Exception ex) 
+			{
+				System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+			}
+		}
+		else if(e.getSource() == bt2)
+		{
+			this.setVisible(false);
+		}
 	}
 	
 	public static void main(String[] args) 
