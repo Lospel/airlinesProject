@@ -84,7 +84,57 @@ public class CancelFlight extends JFrame implements ActionListener
 		bt1.addActionListener(this);
 		bt2.addActionListener(this);
 		
+		l1.setHorizontalAlignment(JLabel.CENTER);
+		l1.setForeground(new java.awt.Color(176,4,21));
 		
+		l1.setFont(f);
+		l2.setFont(f1);
+		l3.setFont(f1);
+		l4.setFont(f1);
+		l5.setFont(f1);
+		l6.setFont(f1);
+		l7.setFont(f1);
+		l8.setFont(f1);
+		l9.setFont(f1);
+		l10.setFont(f1);
+		l11.setFont(f1);
+		l12.setFont(f1);
+		l13.setFont(f1);
+		
+		ch1.setFont(f1);
+		
+		tf1.setFont(f1);
+		tf2.setFont(f1);
+		tf3.setFont(f1);
+		tf4.setFont(f1);
+		tf5.setFont(f1);
+		tf6.setFont(f1);
+		tf7.setFont(f1);
+		tf8.setFont(f1);
+		tf9.setFont(f1);
+		tf10.setFont(f1);
+		tf11.setFont(f1);
+		
+		bt1.setFont(f1);
+		bt2.setFont(f1);
+		
+		l2.setForeground(new java.awt.Color(20,2,117));
+		l3.setForeground(new java.awt.Color(20,2,117));
+		l4.setForeground(new java.awt.Color(20,2,117));
+		l5.setForeground(new java.awt.Color(20,2,117));
+		l6.setForeground(new java.awt.Color(20,2,117));
+		l7.setForeground(new java.awt.Color(20,2,117));
+		l8.setForeground(new java.awt.Color(20,2,117));
+		l9.setForeground(new java.awt.Color(20,2,117));
+		l10.setForeground(new java.awt.Color(20,2,117));
+		l11.setForeground(new java.awt.Color(20,2,117));
+		l12.setForeground(new java.awt.Color(20,2,117));
+		
+		bt1.setBackground(new java.awt.Color(176,4,21));
+		bt2.setBackground(Color.black);
+		
+		bt1.setForeground(Color.WHITE);
+		bt2.setForeground(new java.awt.Color(230,225,225));
 	}
 	
 	@Override
