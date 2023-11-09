@@ -179,10 +179,10 @@ public class HomePage extends JFrame implements ActionListener
 		{
 			new ViewCanceledTicket().setVisible(true);
 		}
-//		else if(cmd.equals("금액 확인하기")) 
-//		{
-//			new CheckPaymentDetails().setVisible(true);
-//		}
+		else if(cmd.equals("금액 확인하기")) 
+		{
+			new CheckPaymentDetails().setVisible(true);
+		}
 		else if(cmd.equals("나가기")) 
 		{
 			System.exit(0);
