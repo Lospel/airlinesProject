@@ -72,7 +72,27 @@ public class CheckPaymentDetails extends JFrame
 		add(ClassCode);
 		
 		ClassName = new JLabel("여행 시간");
+		ClassName.setFont(f);
+		ClassName.setBounds(485,268,114,14);
+		add(ClassName);
 		
+		JLabel Cardno = new JLabel("아이디");
+		Cardno.setFont(f);
+		Cardno.setBounds(620,269,101,19);
+		add(Cardno);
+		
+		JLabel Phoneno = new JLabel("상태");
+		Phoneno.setFont(f);
+		Phoneno.setBounds(752,264,86,24);
+		add(Phoneno);
+		
+		Label = new JLabel("");
+		ImageIcon ic = new ImageIcon(ClassLoader.getSystemResource("airlinesProject/icons/Home2.png"));
+		Image img = ic.getImage().getScaledInstance(1550, 800, Image.SCALE_SMOOTH);
+		ImageIcon ic1 = new ImageIcon(img);
+		Label.setIcon(ic1);
+		Label.setBounds(0,0,960,590);
+		add(Label);
 	}
 	
 	public static void main(String[] args) 
