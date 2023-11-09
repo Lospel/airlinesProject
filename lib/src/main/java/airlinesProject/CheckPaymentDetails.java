@@ -26,7 +26,7 @@ public class CheckPaymentDetails extends JFrame
 	{
 		f = new Font("궁서체", Font.BOLD, 14);
 		
-		setTitle("상세비용 확인하기");
+		setTitle("금액 확인하기");
 		getContentPane().setBackground(Color.white);
 		setSize(860, 486);
 		setLayout(null);
@@ -75,12 +75,12 @@ public class CheckPaymentDetails extends JFrame
 		
 		ClassName = new JLabel("여행 시간");
 		ClassName.setFont(f);
-		ClassName.setBounds(485,268,114,14);
+		ClassName.setBounds(485,269,114,14);
 		add(ClassName);
 		
 		JLabel Cardno = new JLabel("아이디");
 		Cardno.setFont(f);
-		Cardno.setBounds(620,269,101,19);
+		Cardno.setBounds(620,268,101,19);
 		add(Cardno);
 		
 		JLabel Phoneno = new JLabel("상태");
@@ -119,6 +119,9 @@ public class CheckPaymentDetails extends JFrame
 				}
 			}
 		});
+		setSize(960,590);
+		setLocation(40,20);
+		setVisible(true);
 	}
 	
 	public static void main(String[] args) 
