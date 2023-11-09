@@ -24,7 +24,7 @@ public class CheckPaymentDetails extends JFrame
 	{
 		f = new Font("궁서체", Font.BOLD, 14);
 		
-		setTitle("상세비용 보기");
+		setTitle("상세비용 확인하기");
 		getContentPane().setBackground(Color.white);
 		setSize(860, 486);
 		setLayout(null);
@@ -50,10 +50,10 @@ public class CheckPaymentDetails extends JFrame
 		Show.setBounds(500,160,150,26);
 		add(Show);
 		
-		Sector = new JLabel("상세비용 확인하기");
-		Sector.setForeground(Color.blue);
+		Sector = new JLabel("상세 비용");
+		Sector.setForeground(Color.black);
 		Sector.setFont(new Font("궁서체", Font.BOLD, 33));
-		Sector.setBounds(291, 17, 800, 39);
+		Sector.setBounds(400, 17, 800, 39);
 		add(Sector);
 		
 		FlightCode = new JLabel("티켓 ID");
@@ -93,6 +93,7 @@ public class CheckPaymentDetails extends JFrame
 		Label.setIcon(ic1);
 		Label.setBounds(0,0,960,590);
 		add(Label);
+		setVisible(true);
 	}
 	
 	public static void main(String[] args) 
