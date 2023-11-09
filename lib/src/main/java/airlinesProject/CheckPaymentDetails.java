@@ -5,6 +5,8 @@ import javax.swing.*;
 
 import org.checkerframework.checker.initialization.qual.Initialized;
 
+import net.proteanit.sql.DbUtils;
+
 import java.awt.event.*;
 import java.sql.*;
 
@@ -94,6 +96,29 @@ public class CheckPaymentDetails extends JFrame
 		Label.setBounds(0,0,960,590);
 		add(Label);
 		setVisible(true);
+		
+		Show.addActionListener(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				try 
+				{
+					String usn = textField.getText();
+					ConnectionClass obj = new ConnectionClass();
+					String q = "select tid, price, journey_date, journey_time, username, status from bookedFlight where username='"
+							+usn+"' and status='Success'";
+					ResultSet rest = obj.stm.executeQuery(q);
+					table.setModel(DbUtils.resultSetToTableModel(rest));
+					table.setFont(f);
+				}
+				catch (Exception ex) 
+				{
+					System.out.printf("Exception [Err_Msg]: {%s}", ex.getMessage());
+				}
+			}
+		});
 	}
 	
 	public static void main(String[] args) 
