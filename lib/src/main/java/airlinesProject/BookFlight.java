@@ -71,8 +71,8 @@ public class BookFlight extends JFrame implements ActionListener
 		l6 = new JLabel("가격");
 		l7 = new JLabel("항공기 번호");
 		l8 = new JLabel("항공기 이름");
-		l9 = new JLabel("출발 날짜");
-		l10 = new JLabel("출발 시간");
+		l9 = new JLabel("여행 날짜");
+		l10 = new JLabel("여행 시간");
 		l11 = new JLabel("아이디");
 		l12 = new JLabel("이름");
 		
