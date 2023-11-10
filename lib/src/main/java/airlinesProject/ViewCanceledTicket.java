@@ -18,7 +18,7 @@ public class ViewCanceledTicket extends JFrame
 	{
 		super("모든 취소된 공항 상세정보");
 		setSize(1300, 400);
-		setLocation(0, 10);
+		setLocation(250, 200);
 		f = new Font("궁서체", Font.BOLD, 16);
 		
 		try 

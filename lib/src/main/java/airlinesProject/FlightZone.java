@@ -131,7 +131,7 @@ public class FlightZone extends JFrame
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setSize(900,650);
 		setVisible(true);
-		setLocation(100,50);
+		setLocation(350,150);
 		
 	}
 	public static void main(String[] args) 

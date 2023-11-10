@@ -120,7 +120,7 @@ public class CheckPaymentDetails extends JFrame
 			}
 		});
 		setSize(960,590);
-		setLocation(40,20);
+		setLocation(250,170);
 		setVisible(true);
 	}
 	

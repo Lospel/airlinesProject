@@ -99,7 +99,7 @@ public class FlightJourney extends JFrame implements ActionListener
 		l1.add(b2);
 		
 		f.setSize(500,270);
-		f.setLocation(450,250);
+		f.setLocation(600,300);
 		f.setVisible(true);
 	}
 	

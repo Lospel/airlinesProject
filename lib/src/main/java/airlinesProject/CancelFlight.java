@@ -17,7 +17,7 @@ public class CancelFlight extends JFrame implements ActionListener
 	CancelFlight()
 	{
 		super("한국항공의 공항 취소하기");
-		setLocation(50,10);
+		setLocation(250,150);
 		setSize(1100,650);
 		
 		f = new Font("궁서체",Font.BOLD,25);
