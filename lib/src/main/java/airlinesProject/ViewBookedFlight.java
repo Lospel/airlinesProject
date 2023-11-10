@@ -17,7 +17,7 @@ public class ViewBookedFlight extends JFrame
 	{
 		super("항공 일정 상세");
 		setSize(1300, 400);
-		setLocation(0, 10);
+		setLocation(250, 250);
 		f = new Font("궁서체", Font.BOLD, 17);
 		
 		try 

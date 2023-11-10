@@ -151,7 +151,7 @@ public class AddPassengerDetails extends JFrame implements ActionListener
 		
 		f.setVisible(true);
 		f.setSize(900, 600);
-		f.setLocation(500, 150);
+		f.setLocation(500, 200);
 	}
 	
 	public void actionPerformed(ActionEvent e)

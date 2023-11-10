@@ -17,7 +17,7 @@ public class UpdatePassenger extends JFrame implements ActionListener
 	UpdatePassenger()
 	{
 		super("승객 정보 수정하기");
-		setLocation(450, 10);
+		setLocation(450, 200);
 		setSize(740, 600);
 		
 		f = new Font("궁서체", Font.BOLD, 25);

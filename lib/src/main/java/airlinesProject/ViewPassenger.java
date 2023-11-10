@@ -17,7 +17,7 @@ public class ViewPassenger extends JFrame
 	{
 		super("모든 승객의 상세정보");
 		setSize(1600, 400);
-		setLocation(200, 300);
+		setLocation(180, 300);
 		f = new Font("궁서체", Font.BOLD, 16);
 		
 		try 

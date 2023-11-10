@@ -18,7 +18,7 @@ public class BookFlight extends JFrame implements ActionListener
 	BookFlight()
 	{
 		super("한국 항공의 항공권 예매");
-		setLocation(50, 20);
+		setLocation(250, 150);
 		setSize(1100, 650);
 		
 		f = new Font("궁서체", Font.BOLD, 25);
