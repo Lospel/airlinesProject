@@ -10,6 +10,9 @@
 ## 개발 환경
 ![스크린샷 2023-11-14 223321](https://github.com/Lospel/airlinesProject/assets/115764991/cf177495-6825-4d0e-bda0-0d464e9a1d27)
 
+## 요구사항정리
+![스크린샷 2023-11-14 224331](https://github.com/Lospel/airlinesProject/assets/115764991/a3b8f40a-1312-4f1e-8879-1447e852e9d4)
+
 ## FlowChart
 ![스크린샷 2023-11-14 224213](https://github.com/Lospel/airlinesProject/assets/115764991/2fc35ea7-4aa0-4509-9bc2-34e5099b278a)
 
